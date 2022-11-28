@@ -41,7 +41,6 @@ public class SavollarController {
         return ResponseEntity.ok( savollarRepositary.findAll());
     }
 
-
     @GetMapping("/oqishId/{id}")
     public HttpEntity<?> OqishId(@PathVariable Integer id){
         return ResponseEntity.ok( savollarRepositary.findById(id));

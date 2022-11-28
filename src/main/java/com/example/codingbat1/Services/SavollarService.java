@@ -20,13 +20,10 @@ import java.util.Optional;
 public class SavollarService {
      @Autowired
     SavollarRepositary savollarRepositary;
-
      @Autowired
     NamunaRepositary namunaRepositary;
-
      @Autowired
     TillarRepositary tillarRepositary;
-
      @Autowired
     CategoriyaRepositary categoriyaRepositary;
 
