@@ -2,10 +2,8 @@ package com.example.codingbat1.Controller;
 
 import com.example.codingbat1.Payload.ApiResponse;
 import com.example.codingbat1.Payload.SavollarDto;
-import com.example.codingbat1.Repositary.CategoriyaRepositary;
 import com.example.codingbat1.Repositary.SavollarRepositary;
 import com.example.codingbat1.Services.SavollarService;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -23,11 +21,11 @@ public class SavollarController {
         return ResponseEntity.status(apiResponse.isHolat()? HttpStatus.OK:HttpStatus.ALREADY_REPORTED).body(apiResponse.getXabar());
     }
 
-    @PutMapping("/editSavollar/{id}")
-    public HttpEntity<?> EditSavollar(@RequestBody SavollarDto savollarDto,@PathVariable Integer id){
-        ApiResponse apiResponse=savollarService.PutSavollar(savollarDto,id);
-        return ResponseEntity.status(apiResponse.isHolat()? HttpStatus.OK:HttpStatus.NOT_FOUND).body(apiResponse.getXabar());
-    }
+//    @PutMapping("/editSavollar/{id}")
+//    public HttpEntity<?> EditSavollar(@RequestBody SavollarDto savollarDto,@PathVariable Integer id){
+//        ApiResponse apiResponse=savollarService.PutSavollar(savollarDto,id);
+//        return ResponseEntity.status(apiResponse.isHolat()? HttpStatus.OK:HttpStatus.NOT_FOUND).body(apiResponse.getXabar());
+//    }
     @DeleteMapping("/deleteSavollar/{id}")
     public HttpEntity<?> DeleteSavollar(@PathVariable Integer id){
         ApiResponse apiResponse=savollarService.DeleteSavollar(id);
@@ -36,6 +34,7 @@ public class SavollarController {
 
     @Autowired
     SavollarRepositary savollarRepositary;
+
     @GetMapping("/oqish")
     public HttpEntity<?> Oqish(){
         return ResponseEntity.ok( savollarRepositary.findAll());

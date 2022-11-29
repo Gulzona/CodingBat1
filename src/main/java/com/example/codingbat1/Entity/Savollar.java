@@ -1,5 +1,6 @@
 package com.example.codingbat1.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,13 +31,16 @@ public class Savollar {
     private String yordam;
 
 
-    @OneToOne
+
+    @OneToOne()
     private Namuna namuna;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Tillar tillar;
 
-    @OneToOne
+//    @JsonIgnore
+    @OneToOne()
     private Categoriya categoriya;
+//    optional = false,fetch = FetchType.LAZY
 
 }

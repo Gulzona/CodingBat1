@@ -20,6 +20,7 @@ public class Categoriya {
     private String izoh;
     @Column(nullable = false)
     private Integer yulduzchalarSoni;
+
     @JsonIgnore
     @ManyToOne(optional = false,fetch = FetchType.LAZY)
     private Tillar tillar;
